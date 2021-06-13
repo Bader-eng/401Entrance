@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<a href="/all">all product</a>
+<body>
+    <% data.forEach(element => { %>
+    <div>
+        <li>
+<%=element.name  %> 
+        </li>
+        <li>
+            <%=element.price  %> 
+                    </li>
+    <img src="<%= element.image_link %> ">
+  <li>
+<%=element.description  %> 
+  </li>
+  <form action="/add" method="POST">
+    <input name="name" value="<%=element.name  %> " hidden>
+    <input name="price" value="<%=element.price  %> " hidden>
+    <input name="image_link" value="<%=element.image_link   %> " hidden>
+    <input name="description" value="<%=element.description  %> " hidden>
+    <button type="submit">add</button>
+  </form>
+    </div>
+    <% }) %>
+</body>
+</html>
