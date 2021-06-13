@@ -35,6 +35,7 @@ server.post('/add',addtomycard)
 server.get('/MyCard',all)
 server.get('/Details/:id',details)
 server.put('/update/:id',update)
+server.delete('/delete/:id',delete1)
 function serachHandler(req,res){
     let greaterPrice=req.body.priceHigh
     let lessPrice=req.body.priceLow
@@ -96,6 +97,15 @@ client.query(sql,safevalue)
     })
 
 }
+function delete1 (req,res){
+    let sql=`DELETE * FROM jop WHERE id=$1`
+    let safevalue=[req.params.id]
+    client.query(sql,safevalue)
+    .then(val=>{
+        res.redirect('/')
+    })
+}
+
 
 function Maybelline(new1){
 this.name=new1.name

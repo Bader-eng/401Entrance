@@ -18,6 +18,9 @@
   <li>
 <%=data.description  %> 
   </li>
+  <form action="/delete/<%= data.id %>?_method=delete" method="POST">
+    <button type="submit">delete</button>
+</form>
   <form action="/update/<%= data.id %>?_method=put" method="POST">
     <input name="name" value="<%=data.name  %> " >
     <input name="price" value="<%=data.price  %> " >
